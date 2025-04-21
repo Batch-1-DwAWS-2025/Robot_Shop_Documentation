@@ -1,5 +1,5 @@
-# 🌐 RoboShop Web/Frontend Setup 🛒
-* Welcome to the RoboShop Web/Frontend setup guide! This service uses Nginx to serve web content for the RoboShop application, creating your online store’s webpage. Follow these simple steps to get it running! 🚀
+# 🌐 RobotShop Web/Frontend Setup 🛒
+* Welcome to the RobotShop Web/Frontend setup guide! This service uses Nginx to serve web content for the RobotShop application, creating your online store’s webpage. Follow these simple steps to get it running! 🚀
 
 ## 📋 Prerequisites
 
@@ -11,7 +11,7 @@
 
 ## 🛠️ Setup Instructions
 #### 1️⃣ Install Nginx
-- Install the Nginx web server to host the RoboShop website.
+- Install the Nginx web server to host the RobotShop website.
 ```powershell
 yum install nginx -y
 ```
@@ -35,19 +35,19 @@ http://<your-server-public-IP>:80
 ##### 🔍 What’s happening? You should see Nginx’s welcome page. If not, check Nginx status with systemctl status nginx.
 
 #### 4️⃣ Remove Default Content
-* Clear out the default Nginx files to make room for RoboShop’s content.
+* Clear out the default Nginx files to make room for RobotShop’s content.
 ```powershell
 rm -rf /usr/share/nginx/html/*
 ```
-##### 🧹 What’s happening? The default web files are removed, ready for RoboShop files.
+##### 🧹 What’s happening? The default web files are removed, ready for RobotShop files.
 
-#### 5️⃣ Download RoboShop Frontend Files
-##### Download the RoboShop web content as a zip file.
+#### 5️⃣ Download RobotShop Frontend Files
+##### Download the RobotShop web content as a zip file.
 ```powershell
-curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
+curl -o /tmp/robot-shop-web.zip https://robot-shop-project.s3.us-east-1.amazonaws.com/robot-shop-web.zip
 ```
 
-##### ⬇️ What’s happening? The RoboShop website files are downloaded to /tmp/web.zip.
+##### ⬇️ What’s happening? The RobotShop website files are downloaded to /tmp/web.zip.
 
 #### 6️⃣ Extract Frontend Files
 ##### Unzip the downloaded files to Nginx’s web directory.
@@ -55,21 +55,21 @@ curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
 cd /usr/share/nginx/html
 ```
 ```powershell-interactive
-unzip /tmp/web.zip
+unzip /tmp/robot-shop-web.zip
 ```
-##### 📦 What’s happening? The RoboShop web files are now in the correct folder for Nginx to serve.
+##### 📦 What’s happening? The RobotShop web files are now in the correct folder for Nginx to serve.
 
-#### 7️⃣ Verify RoboShop Content
-##### Revisit the same URL in your browser to see the RoboShop website.
+#### 7️⃣ Verify RobotShop Content
+##### Revisit the same URL in your browser to see the RobotShop website.
 ```powershell
 http://<your-server-public-IP>:80
 ```
-##### 🎨 What’s happening? You should now see the RoboShop storefront instead of the default Nginx page.
+##### 🎨 What’s happening? You should now see the RobotShop storefront instead of the default Nginx page.
 
 #### 8️⃣ Configure Nginx Reverse Proxy
 - Set up Nginx to route requests to the appropriate backend services (e.g., catalogue, user). Create a configuration file.
 ```powershell
-vim /etc/nginx/default.d/roboshop.conf
+vim /etc/nginx/default.d/robotshop.conf
 ```
 ##### Add the following content, replacing <catalogue-server-IP>, <user-server-IP>, etc., with the actual IP addresses of your backend services:
 ```powershell
@@ -80,11 +80,11 @@ location /images/ {
   root   /usr/share/nginx/html;
   try_files $uri /images/placeholder.jpg;
 }
-location /api/catalogue/ { proxy_pass http://<catalogue-server-IP>:8080/; }
-location /api/user/ { proxy_pass http://<user-server-IP>:8080/; }
-location /api/cart/ { proxy_pass http://<cart-server-IP>:8080/; }
-location /api/shipping/ { proxy_pass http://<shipping-server-IP>:8080/; }
-location /api/payment/ { proxy_pass http://<payment-server-IP>:8080/; }
+location /api/catalogue/ { proxy_pass http://localhost:8080/; }
+location /api/user/ { proxy_pass http://localhost:8080/; }
+location /api/cart/ { proxy_pass http://localhost:8080/; }
+location /api/shipping/ { proxy_pass http://localhost:8080/; }
+location /api/payment/ { proxy_pass http://localhost:8080/; }
 
 location /health {
   stub_status on;
@@ -99,10 +99,10 @@ location /health {
 ```powershell
 systemctl restart nginx
 ```
-##### 🔄 What’s happening? Nginx reloads with the updated settings, making your RoboShop site fully functional.
+##### 🔄 What’s happening? Nginx reloads with the updated settings, making your RobotShop site fully functional.
 
 ##### 🎉 Success!
-* Your RoboShop web frontend is now live! 🌟 Visit 
+* Your RobotShop web frontend is now live! 🌟 Visit 
 ```powershell
 http://<your-server-public-IP>:80
 ```
@@ -117,7 +117,7 @@ systemctl status nginx
 
 * Page not loading? Ensure port 80 is open and the correct IP is used.
 
-* Backend errors? Verify backend IPs in roboshop.conf and ensure services are running.
+* Backend errors? Verify backend IPs in robotshop.conf and ensure services are running.
 
 ### Check logs for clues:
 ```powershell
