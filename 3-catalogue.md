@@ -101,12 +101,12 @@ sudo yum clean all
 
 sudo yum makecache
 
-yum install mongodb-org-shell -y
+sudo yum install -y mongodb-mongosh
 ```
 
 Load the schema into MongoDB:
 ```
-mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js
+mongosh --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js
 ```
 > ⚠️ Replace `MONGODB-SERVER-IPADDRESS` with your actual MongoDB server IP address!
 
