@@ -1,3 +1,3 @@
 # Robot_Shop_Documentation
 
-![alt text](robot-architecture.svg)
+![alt text](robot_shop_architecture.svg)
