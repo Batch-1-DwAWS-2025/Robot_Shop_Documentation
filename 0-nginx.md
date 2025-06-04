@@ -36,6 +36,7 @@ Here’s the difference:
 ### 🌍 Forward Proxy
 - **What it does**: Acts like a middleman that the client (user) chooses to use. 🕵️  
 - **Key Features**:  
+  - **Client-Centric**: Client is aware of existence of proxy, we intentionally send the traffic through proxy server.
   - **Hides Client Identity**: Keeps the user’s IP address secret for privacy. 🕶️  
   - **Controls Access**: Blocks certain websites or content from being accessed. 🚫  
   - **Caching**: Saves frequently visited content to load it faster next time. ⚡  
@@ -44,6 +45,7 @@ Here’s the difference:
 ### 🔒 Reverse Proxy
 - **What it does**: Sits in front of servers, and clients don’t even know it’s there! 🛡️  
 - **Key Features**:  
+  - **Server-Centric**: Clients are unaware of the existence of reverse proxy, for clients it the website they are connecting.
   - **Load Balancing**: Spreads traffic across multiple servers to keep things running smoothly. ⚖️  
   - **Security**: Hides backend servers and their IP addresses to protect them. 🔐  
   - **SSL Termination**: Handles encryption (SSL/TLS) so backend servers don’t have to. 🛠️  
