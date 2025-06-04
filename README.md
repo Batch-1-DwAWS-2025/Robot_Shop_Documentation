@@ -56,4 +56,3 @@ This layered setup keeps RobotShop secure, fast, and scalable! 🚀
 
 > **Fun Fact**: The **Web Tier** is like the shop’s storefront, the **App Tier** is the cashier processing orders, and the **DB Tier** is the stockroom keeping everything in order! 🏬
 
-For more details, check out the [RobotShop architecture diagram](roboshop.jpg). 📊
