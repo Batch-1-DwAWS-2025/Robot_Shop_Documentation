@@ -26,7 +26,7 @@ Here’s where NGINX keeps its important files:
 ---
 
 ## 🔄 Types of Proxies
-NGINX can work as two types of proxies: **Forward Proxy** and **Reverse Proxy**. 
+We are having two types of proxies: **Forward Proxy** and **Reverse Proxy**. 
 
 ![alt text](proxy.png)
 
