@@ -5,7 +5,7 @@ This document explains the **RobotShop** project! Below is a simple breakdown of
 > **Note**: The DevOps team does not handle these dependencies; they are decided by the **Architects**. 🏗️
 
 ## RobotShop Architecture 🚀
-<img src="robot_shop_architecture.svg" style="max-width:100%;">
+![alt text](robot_shop_architecture.svg)
 
 ---
 ## 🌐 Web Tier
